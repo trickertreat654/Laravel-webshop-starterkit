@@ -1,11 +1,14 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/vue-starter-kit",
+    "name": "trickertreat654/laravel-webshop-starterkit",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "A Laravel 12 starter kit with Vue 3 and Inertia 2 for building a simple webshop.",
     "keywords": [
         "laravel",
-        "framework"
+        "vue3",
+        "inertia2",
+        "webshop",
+        "starter kit"
     ],
     "license": "MIT",
     "require": {
