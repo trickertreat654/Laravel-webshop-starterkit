@@ -62,7 +62,7 @@
     </AlertDialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
     AlertDialog,
     AlertDialogAction,
@@ -77,9 +77,20 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
 
-const props = defineProps({
-    cart: Object,
-});
+interface CartItem {
+    product: {
+        price: number;
+        // additional product properties can be defined here
+    };
+    quantity: number;
+    id: number;
+}
+
+interface Cart {
+    items?: CartItem[];
+}
+
+const props = defineProps<{ cart?: Cart }>();
 
 // Compute the total cost of items in the cart (assuming product.price is in cents)
 const cartTotal = computed(() => {
@@ -89,10 +100,10 @@ const cartTotal = computed(() => {
 
 // Reactive variables for managing the alert dialog
 const isAlertOpen = ref(false);
-const pendingItem = ref(null);
+const pendingItem = ref<CartItem | null>(null);
 
 // Function to update the quantity of a specific cart item.
-const updateItemQuantity = (item, newQuantity) => {
+const updateItemQuantity = (item: CartItem, newQuantity: number) => {
     if (newQuantity < 0) return;
 
     // If newQuantity is 0, ask for confirmation to remove the item.

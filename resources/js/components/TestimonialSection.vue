@@ -11,7 +11,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    testimonials: [
+    testimonials: () => [
         {
             id: 1,
             quote: 'I absolutely love the quality and service! This shop never disappoints, and the products always exceed my expectations.',

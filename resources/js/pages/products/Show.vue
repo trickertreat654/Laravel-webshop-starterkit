@@ -59,7 +59,7 @@ const submit = () => {
     }
     form.post(route('items.store'), {
         preserveScroll: true,
-        onFinish: (response) => {
+        onFinish: () => {
             // Handle success response
             toast({
                 title: 'Product Added to Cart',
