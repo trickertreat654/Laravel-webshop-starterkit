@@ -11,37 +11,27 @@ This project is a Laravel 12 starter kit integrated with Vue 3 and Inertia 2, de
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+When creating a new Laravel application using the Laravel installer, you can use any community maintained starter kit available on Packagist with the `--using` flag:
 
 ```bash
-git clone <repository-url>
-cd vue-webshop-starter-kit
+laravel new my-app --using=trickertreat654/laravel-webshop-starterkit
 ```
 
-### 2. Install Dependencies
-
-Install the PHP and Node dependencies:
-
-```bash
-composer install
-npm install
-```
-
-### 3. Environment Configuration
-
-- Copy the example environment file:
+**Install Frontend Dependencies and Build Assets:**
 
     ```bash
-    cp .env.example .env
+    cd my-app
+    npm install && npm run build
+    composer run dev
     ```
 
-- Set up your database credentials.
+
 - Add your Stripe keys in the `.env` file for payment integration.
 - **WorkOS Setup:** Follow [this video](https://www.youtube.com/watch?v=xFL4MPp2RX0) for setting up WorkOS.
 
 ### 4. Run Migrations
 
-Run the migrations to create your database schema and seed dummy products:
+Run the migrations if not already done to create your database schema and seed dummy products (there is a migration to seed dummy data. seed is not required):
 
 ```bash
 php artisan migrate
@@ -54,14 +44,6 @@ This shop is themeable. To customize the design:
 1. Visit [shadcn-vue themes](https://www.shadcn-vue.com/themes) to pick a theme.
 2. Replace the `@layer base` section in the `app.css` file with the selected theme’s base styles.
 
-### 6. Run the Application
-
-Start the development server:
-
-```bash
-npm run dev
-php artisan serve
-```
 
 Then open your browser at `http://localhost:8000`.
 
