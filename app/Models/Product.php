@@ -22,6 +22,6 @@ class Product extends Model
     }
     public function image(): HasOne
     {
-        return $this->hasOne(Image::class)->ofMany('featured','max');
+        return $this->hasOne(Image::class)->where('featured', true);
     }
 }
